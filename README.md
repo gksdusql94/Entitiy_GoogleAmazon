@@ -42,5 +42,6 @@ The project can be run using the command line or integrated into existing data p
 ```bash
 spark-submit entity_resolution.py --input_google google_dataset.csv --input_amazon amazon_dataset.csv
 
-### Results:
+
+## Results:
 The entity resolution system successfully identified matching products with a high degree of precision and recall, optimizing the product matching process for real-world e-commerce scenarios.
