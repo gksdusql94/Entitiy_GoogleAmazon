@@ -20,7 +20,7 @@ The dataset contains:
 ## Installation & Setup
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
+    git clone https://github.com/gksdusql94/Entity_GoogleAmazon.git
     ```
 2. Install dependencies:
     ```bash
@@ -45,3 +45,9 @@ spark-submit entity_resolution.py --input_google google_dataset.csv --input_amaz
 
 ## Results:
 The entity resolution system successfully identified matching products with a high degree of precision and recall, optimizing the product matching process for real-world e-commerce scenarios.
+
+Implemented an entity resolution system using PySpark to match over 3,000 Google and 1,300 Amazon products, utilizing cosine similarity on TF-IDF vectors to identify duplicate entities.
+-	Computed cosine similarity for 2,441,100 product pairs, performing efficient entity resolution on datasets.
+-	Achieved Precision of 0.26, Recall of 0.52, and an F1 Score of 0.34, demonstrating effective duplicate product identification.
+-	Successfully identified 146 duplicate product pairs by comparing them with the gold standard dataset.
+
