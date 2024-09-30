@@ -60,6 +60,11 @@ plt.ylabel('Score')
 plt.legend()
 plt.show()
 ```
+### Technologies Used
+- PySpark: For large-scale distributed data processing.
+- Matplotlib: For data visualization.
+- Regular Expressions: For tokenizing product descriptions.
+- 
 ### Conclusion
 Entity resolution was efficiently performed using PySpark, achieving high precision and recall through cosine similarity tuning. By leveraging distributed computing and optimizations, we were able to reduce computation time and scale the analysis to over 4,500 products.
 
