@@ -20,12 +20,25 @@ This project applies PySpark for entity resolution between Amazon and Google pro
 2. **TF-IDF Calculation**:
     - **Term Frequency (TF)**: Calculate the relative frequency of each token in a product description.
     - **Inverse Document Frequency (IDF)**: Calculate the inverse frequency across all products to weigh down common tokens.
+    - Histogram of IDF values: Plot a histogram of IDF values. Be sure to use appropriate scaling and bucketing for the data.
+First plot the histogram using matplotlib
 
-3. **Cosine Similarity**:
+      ```python
+      import matplotlib.pyplot as plt
+      small_idf_values = idfsSmall.map(lambda s: s[1]).collect()
+      fig = plt.figure(figsize=(8,3))
+      plt.hist(small_idf_values, 50, log=True)
+      plt.show()
+      ```
+
+  ![image](https://github.com/user-attachments/assets/aa8df921-7f2d-4769-a8a2-e71e2ad17390)
+
+
+4. **Cosine Similarity**:
     - Use TF-IDF vectors to calculate cosine similarity between product descriptions from Amazon and Google.
     - Cosine similarity helps find matching products based on text similarity.
 
-4. **Evaluation Metrics**:
+5. **Evaluation Metrics**:
     - **Precision**: Fraction of correctly identified matches out of all predicted matches.
     - **Recall**: Fraction of actual matches correctly identified.
     - **F1-Score**: The harmonic mean of precision and recall.
@@ -37,7 +50,12 @@ This project applies PySpark for entity resolution between Amazon and Google pro
     - **Precision**: 92.5%
     - **Recall**: 85.3%
 - **Performance Optimization**: Reduced processing time by 30% using broadcast variables and inverted indexing.
-
+- 
+### Evaluation Stats:
+- 146 true duplicates identified.
+- Average similarity of true duplicates: 0.2643.
+- Average similarity of non-duplicates: 0.0012.
+- Found 2441100 common tokens across both datasets.
 ### Visualizations
 
 ### Precision, Recall, and F1-Score Evaluation
@@ -73,11 +91,14 @@ pass
 
 ![image](https://github.com/user-attachments/assets/f15dd921-ecfd-4b8f-965b-512c12413f42)
 
+
+
+
 ### Technologies Used
 - PySpark: For large-scale distributed data processing.
 - Matplotlib: For data visualization.
 - Regular Expressions: For tokenizing product descriptions.
-- 
+
 ### Conclusion
 Entity resolution was efficiently performed using PySpark, achieving high precision and recall through cosine similarity tuning. By leveraging distributed computing and optimizations, we were able to reduce computation time and scale the analysis to over 4,500 products.
 
