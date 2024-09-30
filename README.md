@@ -40,26 +40,39 @@ This project applies PySpark for entity resolution between Amazon and Google pro
 
 ### Visualizations
 
-#### Precision, Recall, and F1-Score vs Threshold
-The following graph demonstrates the relationship between precision, recall, and F1-Score as we vary the cosine similarity threshold:
+### Precision, Recall, and F1-Score Evaluation
+
+The model performance was evaluated using **Precision**, **Recall**, and **F1-Score** metrics at various cosine similarity thresholds. These metrics help analyze the trade-off between correctly predicted matches (precision) and correctly identifying all true matches (recall). 
+
+The graph below shows how these metrics evolve as the similarity threshold changes from 0 to 1. By tuning the threshold, the optimal balance of precision (92.5%) and recall (85.3%) was achieved.
+
+#### Plot:
 
 ```python
-import matplotlib.pyplot as plt
+thresholds = [float(n) / nthresholds for n in range(0, nthresholds)]
+falseposDict = dict([(t, falsepos(t)) for t in thresholds])
+falsenegDict = dict([(t, falseneg(t)) for t in thresholds])
+trueposDict = dict([(t, truepos(t)) for t in thresholds])
 
-# Thresholds and metrics
-thresholds = [i/100 for i in range(0, 101)]
-precision_values = [0.91, 0.92, ...] # Example values
-recall_values = [0.82, 0.83, ...] # Example values
-f1_values = [0.85, 0.86, ...] # Example values
+precisions = [precision(t) for t in thresholds]
+recalls = [recall(t) for t in thresholds]
+fmeasures = [fmeasure(t) for t in thresholds]
 
-plt.plot(thresholds, precision_values, label="Precision", color="blue")
-plt.plot(thresholds, recall_values, label="Recall", color="green")
-plt.plot(thresholds, f1_values, label="F1-Score", color="red")
-plt.xlabel('Threshold')
-plt.ylabel('Score')
-plt.legend()
-plt.show()
+print(precisions[0], fmeasures[0])
+assert (abs(precisions[0] - 0.000532546802671) < 0.0000001)
+assert (abs(fmeasures[0] - 0.00106452669505) < 0.0000001)
+
+
+fig = plt.figure()
+plt.plot(thresholds, precisions)
+plt.plot(thresholds, recalls)
+plt.plot(thresholds, fmeasures)
+plt.legend(['Precision', 'Recall', 'F-measure'])
+pass
 ```
+
+![image](https://github.com/user-attachments/assets/f15dd921-ecfd-4b8f-965b-512c12413f42)
+
 ### Technologies Used
 - PySpark: For large-scale distributed data processing.
 - Matplotlib: For data visualization.
