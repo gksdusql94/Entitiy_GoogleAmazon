@@ -1,9 +1,9 @@
-# **Entity Resolution of Google-Amazon Products using PySpark**
+# 🛍️  **Entity Resolution of Google-Amazon Products using PySpark**
 
-### Overview
+## 🌟  Overview
 This project applies PySpark for entity resolution between Amazon and Google product datasets using **TF-IDF** and **Cosine Similarity**. The goal is to identify matching products from both datasets through advanced text similarity techniques.
 
-### Data Sources
+## 📁 Data Sources
 - **Google.csv**: 3,226 Google product dataset.
 - **Amazon.csv**: 1,363 Amazon product dataset.
 - **Google_small.csv**: Sampled Google dataset.
@@ -11,7 +11,7 @@ This project applies PySpark for entity resolution between Amazon and Google pro
 - **Amazon_Google_perfectMapping.csv**: Gold standard mapping of matching products.
 - **stopwords.txt**: List of common stopwords for text preprocessing.
 
-### Process Workflow
+## Process Workflow
 
 1. **Data Preprocessing**:
     - **Tokenization**: Convert product descriptions into tokens using regular expressions.
@@ -43,7 +43,7 @@ First plot the histogram using matplotlib
     - **Recall**: Fraction of actual matches correctly identified.
     - **F1-Score**: The harmonic mean of precision and recall.
 
-### Results
+## 🎯 Results
 
 - **Processed Over 4,500 Products**: Successfully compared 3,226 Google products with 1,363 Amazon products.
 - 146 true duplicates identified.
@@ -51,7 +51,7 @@ First plot the histogram using matplotlib
 - Average similarity of non-duplicates: 0.0012.
 - Found 2441100 common tokens across both datasets.
   
-### Visualizations
+## 📊 Visualizations
 
 ### Precision, Recall, and F1-Score Evaluation
 
@@ -89,11 +89,11 @@ pass
 
 
 
-### Technologies Used
+## 💻 Technologies Used
 - PySpark: For large-scale distributed data processing.
 - Matplotlib: For data visualization.
 - Regular Expressions: For tokenizing product descriptions.
 
-### Conclusion
+## 🏆 Conclusion
 Entity resolution was efficiently performed using PySpark, achieving high precision and recall through cosine similarity tuning. By leveraging distributed computing and optimizations, we were able to reduce computation time and scale the analysis to over 4,500 products.
 
