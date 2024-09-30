@@ -44,25 +44,6 @@ conf = SparkConf().set("spark.ui.port", "4050")
 # create the context
 sc = pyspark.SparkContext(conf=conf)
 
-# Just run this code
-!pip install wget
-import wget
-
-GOOGLE_PATH = 'Google.csv'
-GOOGLE_SMALL_PATH = 'Google_small.csv'
-AMAZON_PATH = 'Amazon.csv'
-AMAZON_SMALL_PATH = 'Amazon_small.csv'
-GOLD_STANDARD_PATH = 'Amazon_Google_perfectMapping.csv'
-STOPWORDS_PATH = 'stopwords.txt'
-
-url = 'https://phantom.cs.qc.cuny.edu/li/bda/'
-wget.download(url + GOOGLE_PATH, GOOGLE_PATH)
-wget.download(url + GOOGLE_SMALL_PATH, GOOGLE_SMALL_PATH)
-wget.download(url + AMAZON_PATH, AMAZON_PATH)
-wget.download(url + AMAZON_SMALL_PATH, AMAZON_SMALL_PATH)
-wget.download(url + GOLD_STANDARD_PATH, GOLD_STANDARD_PATH)
-wget.download(url + STOPWORDS_PATH, STOPWORDS_PATH)
-
 import hashlib
 
 class TestFailure(Exception):
