@@ -46,16 +46,11 @@ First plot the histogram using matplotlib
 ### Results
 
 - **Processed Over 4,500 Products**: Successfully compared 3,226 Google products with 1,363 Amazon products.
-- **Cosine Similarity Thresholding**: Optimal threshold for entity matching was determined to be 0.65, achieving:
-    - **Precision**: 92.5%
-    - **Recall**: 85.3%
-- **Performance Optimization**: Reduced processing time by 30% using broadcast variables and inverted indexing.
-- 
-### Evaluation Stats:
 - 146 true duplicates identified.
 - Average similarity of true duplicates: 0.2643.
 - Average similarity of non-duplicates: 0.0012.
 - Found 2441100 common tokens across both datasets.
+  
 ### Visualizations
 
 ### Precision, Recall, and F1-Score Evaluation
